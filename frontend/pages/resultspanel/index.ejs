@@ -8,12 +8,12 @@
 </head>
 <body>
   <div class="container">
-    <div class="title">Результаты пройденных тестов</div>
-    <div class="alldel"><button class="alldelbtn">Очистить всё</button></div>
+    <div class="title">Результаты пройденных тестов</div>    
     <div class="testsblock">
       <% if (!results.length) {%>
         <div class="title">Результатов тестов пока нет.</div>
       <% } else { %>
+        <div class="alldel"><button class="alldelbtn">Очистить всё</button></div>
         <% results.forEach((result) => {%>
           <% let gradecolor = '' 
             if (result.grade === 3) {
@@ -34,14 +34,29 @@
               </div>
             </div>
             <div class="answinfo">
-              <div class="answtitles"><div class="answtitle">Ответы</div><div class="answtitle">Правильные ответы</div></div>
-              <% for (let i = 0; i < result.allansw; i++) { %>
-                <% let color = '#8dec8d'
-                if(result.answers[i] !== result.correctansw[i]) {
-                  color = '#fd6565'
-                } %>
-                <div class="answers" style="background: <%= color %>;"><div class="counter"><%= i + 1 %></div><div class="answtext"><div class="answ"><%= result.answers[i] %></div><div class="correctansw"><%= result.correctansw[i] %></div></div></div>
-              <% } %>
+              <table class="answTable">
+                <thead>
+                  <th class="counterColumn" scope="col"></th>
+                  <th scope="col">Ответы</th>
+                  <th scope="col">Правильные ответы</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="empty-row" colspan="3"></td>
+                  </tr>
+                  <% for (let i = 0; i < result.allansw; i++) { %>
+                    <% let color = '#8dec8d'
+                    if(result.answers[i] !== result.correctansw[i]) {
+                      color = '#fd6565'
+                    } %>
+                    <tr style="background: <%= color %>;">
+                      <td class="counterTd"><%= i + 1 %></td>
+                      <td><%= result.answers[i] %></td>
+                      <td><%= result.correctansw[i] %></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
             </div>
           </div>
         <% })} %>
