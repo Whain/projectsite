@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/selecttest/style.css">
+  <title>Выбор теста</title>
+</head>
+<body>
+  <div class="mainblock">
+    <div class="title">
+      Выберите тест:
+    </div>
+    <div class="testlist">
+      <% if (!data.length) { %>
+        <div class="error">
+          Упс, в этом классе тестов пока-что нет
+        </div>
+      <% } else {%>
+        <% data.forEach((test) => { %>
+          <a href="/selecttest?id=<%= test.id %>&class=<%= classnumber %>"><%= test.title %></a>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

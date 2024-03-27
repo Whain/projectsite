@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --font-size: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  color: #fff;
+  background: #000000b5;
+  overflow: hidden;
+}
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+  padding: 100px 0 100px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.info {
+  margin: 50px 0 0 0;
+  text-align: center;
+  font-size: var(--font-size);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 700px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.yourgrab {
+  font-size: var(--font-size);
+}
+
+.grab {
+  font-weight: 700;
+  font-size: 600px;
+}

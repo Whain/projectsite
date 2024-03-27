@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/resultspanel/style.css">
+  <title>Результаты тестов</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Результаты пройденных тестов</div>
+    <div class="alldel"><button class="alldelbtn">Очистить всё</button></div>
+    <div class="testsblock">
+      <% if (!results.length) {%>
+        <div class="title">Результатов тестов пока нет.</div>
+      <% } else { %>
+        <% results.forEach((result) => {%>
+          <% let gradecolor = '' 
+            if (result.grade === 3) {
+              gradecolor = '#fdfd58'
+            } else if (result.grade === 2) {
+              gradecolor = '#ff5757'
+            } else {
+              gradecolor = '#7dff4e'
+            } %>
+          <div class="test" id="test<%= result.id %>">
+            <div class="maintest">
+              <div class="studentinfo"><%= result.name %>, <%= result.class %></div>
+              <div class="testinfo"><%= result.correctquantity %>/<%= result.allansw %></div>
+              <div class="grade" style="color: <%= gradecolor %>; font-weight: 700; "><%= result.grade %></div>
+              <div class="buttons">
+                <button class="btn more">&#9660;</button>
+                <button class="btn delete" id="<%= result.id %>">&times;</button>
+              </div>
+            </div>
+            <div class="answinfo">
+              <div class="answtitles"><div class="answtitle">Ответы</div><div class="answtitle">Правильные ответы</div></div>
+              <% for (let i = 0; i < result.allansw; i++) { %>
+                <% let color = '#8dec8d'
+                if(result.answers[i] !== result.correctansw[i]) {
+                  color = '#fd6565'
+                } %>
+                <div class="answers" style="background: <%= color %>;"><div class="counter"><%= i + 1 %></div><div class="answtext"><div class="answ"><%= result.answers[i] %></div><div class="correctansw"><%= result.correctansw[i] %></div></div></div>
+              <% } %>
+            </div>
+          </div>
+        <% })} %>
+    </div>
+  </div>
+
+  <script src="./pages/resultspanel/script.js"></script>
+</body>
+</html>

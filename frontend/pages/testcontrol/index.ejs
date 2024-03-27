@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/testcontrol/style.css">
+  <title>Управление тестами</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Управление тестами</div>
+    <div class="testsblock">
+      <% if (!tests[0].length && !tests[1].length && !tests[2].length && !tests[3].length && !tests[4].length) {%>
+        <div class="title">Тестов пока нет.</div>
+      <% } else { %>
+        <% tests.forEach((classtest, index) => {
+            if (classtest.length) {
+              classtest.forEach((test) => { %>
+                <div class="test" id="test<%= test.id %>">
+                  <div class="maintest">
+                    <div class="info">
+                      <div class="class"><%= test.classnumber %></div>
+                      <div class="testinfo"><%= test.testtitle %></div>
+                    </div>
+                    <button class="btn delete" id="<%= test.id %>">&times;</button>
+                  </div>
+                </div>
+          <%  })}})} %>
+    </div>
+  </div>
+
+  <script src="./pages/testcontrol/script.js"></script>
+</body>
+</html>

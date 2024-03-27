@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Новый тест</title>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="createpanel">
+        <div class="crdata">
+          <form class="form">
+            <div class="block">
+              <div class="title">
+                Введите название теста
+              </div>
+              <input class="inputtxt" id="testname" type="text">
+            </div>
+            <div class="block">
+              <div class="title">
+                Введите класс
+              </div>
+              <input class="inputtxt" id="classnumber" type="number">
+            </div>
+            <button class="enterbtn btn" type="button">Ввод</button>
+          </form>
+        </div>
+        <div class="crquest">
+          <form class="form">
+            <div class="block">
+              <div class="title">
+                Введите вопрос
+              </div>
+              <input class="inputtxt" id="quest" type="text">
+            </div>
+            <div class="block">
+              <div class="title">
+                Фото
+              </div>
+              <input type="file" class="inputimg">
+              <div class="preview"></div>
+            </div>
+            <div class="block">
+              <div class="title">
+                Выберите тип
+              </div>
+              <div class="change">
+                <div class="option">
+                  <input class="radio" type="radio" name="type" value="test" id="test" checked>
+                  <label class="label" for="test">Тестовый</label>
+                </div>
+                <div class="option">
+                  <input class="radio" type="radio" name="type" value="open" id="open">
+                  <label class="label" for="open">Открытый</label>
+                </div>
+              </div>
+            </div>
+            <div class="block" id="openblock">
+              <div class="title">
+                Введите ответ
+              </div>
+              <input class="inputtxt" id="answ" type="text">
+            </div>
+            <div class="block" id="testblock">
+              <div class="title">
+                Введите вопросы
+              </div>
+              <div class="option">
+                <input class="radio" type="radio" name="correctansw" value="1" id="answ1" checked>
+                <label class="label" for="answ1"><input id="input1" class="inputtxt" type="text"></label>
+              </div>
+              <div class="option">
+                <input class="radio" type="radio" name="correctansw" value="2" id="answ2">
+                <label class="label" for="answ2"><input id="input2" class="inputtxt" type="text"></label>
+              </div>
+              <div class="option">
+                <input class="radio" type="radio" name="correctansw" value="3" id="answ3">
+                <label class="label" for="answ3"><input id="input3" class="inputtxt" type="text"></label>
+              </div>
+              <div class="option">
+                <input class="radio" type="radio" name="correctansw" value="4" id="answ4">
+                <label class="label" for="answ4"><input id="input4" class="inputtxt" type="text"></label>
+              </div>
+            </div>
+            <button class="createbtn btn" type="button">Создать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mainblock">
+    <div class="questcontainer">
+      <div class="questions"></div>
+      <button class="savebtn btn" type="submit">Сохранить</button>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/testresult/style.css">
+  <title>Результаты теста</title>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Тест был успешно завершён!</div>
+    <div class="info"><%= result.name %> поздравляем! Вы успешно решили: <%= result.correctquantity %> заданий из <%= result.allansw %></div>
+    <% let color = '' 
+     if (result.grade === 3) {
+      color = '#fdfd58'
+     } else if (result.grade === 2) {
+      color = '#ff5757'
+     } else {
+      color = '#7dff4e'
+     } %>
+    <div class="text"><div class="yourgrab">Ваша оценка:</div><div style="color: <%= color %>;" class="grab"><%= result.grade %></div></div>
+  </div>
+</body>
+</html>

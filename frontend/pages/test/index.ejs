@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/test/style.css">
+  <title>Тест <%= test.testtitle %></title>
+</head>
+<body>
+  <div class="mainblock">
+    <div class="title">
+      <%= test.testtitle %>
+    </div>
+    <div class="types" hidden><%= test.types %></div>
+    <div class="questcontainer">
+      <form class="form" action="/completedtest" method="post" name="answers">
+        <input type="hidden" name="id" value="<%= test.id %>">
+        <input type="hidden" name="classnumber" value="<%= test.classnumber %>">
+        <div class="info">
+          <div class="question">
+            <div class="questtitle">
+              Введите класс:
+            </div>
+            <input class="openanswer" name="classinfo" type="text">
+          </div>
+          <div class="question">
+            <div class="questtitle">
+              Введите фамилию и имя:
+            </div>
+            <input class="openanswer" name="surname" type="text">
+          </div>
+        </div>
+        <div class="questions">
+          <% for (let i = 0; i < test.quantity; i++)  { %>
+            <div class="question">
+              <div class="questtitle"><%= test.questions[i] %></div>
+              <% if (test.imges.length) {%>
+                <% test.imges.forEach((img) => { %>
+                  <% if (img.id == i + 1) {%>
+                    <img class="img" src="<%= img.src %>">
+                  <% } %>
+                <% }) %>
+              <% } %>
+              <% if (test.types[i] === 'open') {%>
+                <input class="openanswer" name="answ<%= i + 1 %>" type="text">
+              <% } else {%>
+                <% for (let c = 0; c < test.allansw.length; c++) { %>
+                  <% if (test.allansw[c].id == i + 1) { %>
+                    <% let counter = 1 %>
+                    <% test.allansw[c].answers.forEach((answ) => { %>
+                      <div class="option">
+                        <input class="radio" id="<%= counter %><%= i + 1 %>" name="answ<%= i + 1 %>" value="<%= answ %>" type="radio">
+                        <label class="label" for="<%= counter %><%= i + 1 %>"><%= answ %></label>
+                      </div>
+                      <% counter++ %>
+                    <% }) %>
+                  <% } %>
+                <% } %>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+        <div class="error">Ошибка! Не все ответы заполнены!</div>
+        <button class="savebtn btn">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./pages/test/script.js"></script>
+</body>
+</html>

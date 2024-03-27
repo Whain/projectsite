@@ -1,0 +1,22 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "computer science tests",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": ["tests"],
+  "author": "Ivan Briukhov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "nodemon": "^3.0.1"
+  }
+}
